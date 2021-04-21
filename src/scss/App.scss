@@ -1,11 +1,25 @@
 @import 'config';
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import 'nav';
+@import 'main';
 
 body {
-  background-color: $primary;
+  height: 100vh;
+  width: 100%;
+  line-height: 1;
+  background: url('./img/background.png') center;
+  background-size: cover;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+// footer {
+//   position: fixed;
+//   bottom: 0.2rem;
+//   padding: 1rem;
+//   border-top: 3px solid black;
+//   width: 100%;
+// }

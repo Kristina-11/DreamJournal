@@ -1,0 +1,22 @@
+nav {
+  padding: 1rem;
+  background-color: $primary-dark-theme;
+  font-size: 1.2rem;
+
+  .nav-list {
+    display: flex;
+    justify-content: end;
+
+    &-item {
+      text-decoration: none;
+      padding: 0.5rem;
+      color: $secondery-dark-theme;
+      @include transition;
+
+      &:hover {
+        color: lighten($secondery-dark-theme, 20%);
+      }
+    }
+
+  }
+}

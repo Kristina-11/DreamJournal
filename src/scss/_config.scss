@@ -1,1 +1,15 @@
-$primary:  rgb(177, 204, 207);
+$primary-light-theme:  rgb(218, 208, 218);
+$secondery-light-theme: rgb(54, 54, 54);
+
+$primary-dark-theme:  rgb(54, 49, 56);
+$secondery-dark-theme: rgb(198, 175, 209);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin transition {
+  transition: all 0.5s ease-in-out;
+}
