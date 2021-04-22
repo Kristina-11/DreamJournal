@@ -1,0 +1,47 @@
+.dream-form {
+  form {
+    width: 50%;
+    padding: 0.5rem;
+  }
+
+  .form-items {
+    padding-bottom: 0.3rem;
+
+    label {
+      font-size: 1.5rem;
+      padding-right: 0.3rem;
+    }
+
+    input {
+      border: none;
+      border-bottom: 2px solid $primary-light-theme;
+      outline: none;
+
+      &:active, &:focus{
+        border-bottom: 2px solid $secondery-light-theme;
+      }
+    }
+
+    select {
+      border: 2px solid $header-color;
+      border-radius: 8px;
+      padding: 0.2rem;
+      color: $header-color;
+
+      &:active, &:focus{
+        border: 2px solid $secondery-light-theme;
+      }
+    }
+  }
+
+  button {
+    margin-top: 0.5rem;
+    padding: 0.3rem;
+    text-align: center;
+    border: 2px solid $secondery-light-theme;
+    border-radius: 8px;
+    background-color: $secondery-light-theme;
+    color: $header-color;
+    font-weight: 600;
+  }
+}
