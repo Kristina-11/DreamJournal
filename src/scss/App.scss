@@ -27,4 +27,14 @@ footer {
     text-decoration: none;
     color: darken($secondery-light-theme, 40%);
   }
+
+  .social { 
+    padding-top: 0.6rem; 
+    padding-bottom: 0.6rem; 
+
+    img {
+      width: 40px;
+      padding-right: 0.3rem;
+    }
+  }
 }
