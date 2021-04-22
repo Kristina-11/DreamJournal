@@ -1,6 +1,8 @@
 $primary-light-theme:  rgb(160, 119, 161);
 $secondery-light-theme: rgb(219, 212, 223);
 
+$header-color: rgb(74, 35, 90);
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,7 +14,7 @@ $secondery-light-theme: rgb(219, 212, 223);
 }
 
 @mixin headings-style {
-  color: rgb(74, 35, 90);
+  color: $header-color;
   font-size: 3rem;
   text-shadow: 2px 2px rgb(202, 191, 206);
 }

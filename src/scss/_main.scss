@@ -1,18 +1,17 @@
 main {
   width: 100%;
   height: 100%;
-  align-items: center;
   padding: 1rem;
+
+  h1 {
+    text-align: left;
+    @include headings-style;
+  }
 
   // Home component
   .main-home {
     display: flex;
     flex-direction: column;
-
-    h1 {
-      text-align: left;
-      @include headings-style;
-    }
 
     &-text {
       width: 50%;
@@ -25,10 +24,29 @@ main {
     }
 
     &-picture img {
-      position: fixed;
-      top: 0.1rem;
+      position: absolute;
+      bottom: 2rem;
       width: 50%;
       z-index: 2;
+    }
+  }
+
+  // List of Dreams
+  .all-dreams {
+    text-align: left;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    color: darken($secondery-light-theme, 40%);
+
+    a {
+      text-decoration: none;
+      color: $header-color;
+    }
+
+    .dream {
+      padding: 0.8rem;
+      margin: 0.5rem;
+      border-left: 3px solid $header-color;
     }
   }
 }

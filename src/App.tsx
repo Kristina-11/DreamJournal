@@ -4,10 +4,10 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/main/Home';
 import AllDreams from './components/main/AllDreams';
-import ADream from './components/main/ADream';
 import AddADream from './components/main/AddADream';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
+import DreamDetails from './components/main/DreamDetails';
 
 const App = () => {
   return (
@@ -21,7 +21,7 @@ const App = () => {
               <Home />
             </Route>
             <Route path='/dreams/:id'>
-              <ADream />
+              <DreamDetails />
             </Route>
             <Route path='/dreams'>
               <AllDreams />

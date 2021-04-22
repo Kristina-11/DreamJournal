@@ -1,14 +1,20 @@
-import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-const ADream = () => {
-  interface parameters {
-    id: string
-  }
-  const { id }:parameters = useParams();
+interface parameters {
+  id: string,
+  title: string,
+  description: string,
+  date: string,
+  type: string
+}
 
+const ADream = (obj: parameters) => {
   return (
-    <div className='main-dream'>
-      <h1>{ id }</h1>
+    <div className='dream'>
+      <h2>
+        <Link to={`/dreams/${obj.id}`}>{obj.title}</Link>
+      </h2>
+      <p>{obj.date}</p>
     </div>
   )
 }
