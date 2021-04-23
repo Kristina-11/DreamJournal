@@ -17,16 +17,20 @@
       border-bottom: 2px solid $primary-light-theme;
       outline: none;
 
-      &:active, &:focus{
+      &:active, &:focus {
         border-bottom: 2px solid $secondery-light-theme;
       }
+    }
+
+    input[type='date'] {
+      color: $primary-light-theme;
     }
 
     select {
       border: 2px solid $header-color;
       border-radius: 8px;
       padding: 0.2rem;
-      color: $header-color;
+      color: $primary-light-theme;
 
       &:active, &:focus{
         border: 2px solid $secondery-light-theme;

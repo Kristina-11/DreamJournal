@@ -9,6 +9,7 @@ body {
   line-height: 1;
   background: url('./img/background.png') center no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -22,6 +23,8 @@ footer {
   border-top: 1px solid lighten($primary-light-theme, 10%);
   width: 50%;
   text-align: left;
+  color: darken($primary-light-theme, 40%);
+  transform: rotate(3deg);
   
   a {
     text-decoration: none;
@@ -38,3 +41,5 @@ footer {
     }
   }
 }
+
+@import 'responsive';

@@ -8,6 +8,11 @@ main {
     @include headings-style;
   }
 
+  b {
+    color: $header-color;
+    font-style: italic;
+  }
+
   // Home component
   .main-home {
     display: flex;
@@ -20,7 +25,7 @@ main {
       padding-top: 1rem;
       padding-bottom: 1rem;
       font-size: 1rem;
-      color: darken($primary-light-theme, 50%);
+      color: darken($primary-light-theme, 30%);
     }
 
     &-picture img {
