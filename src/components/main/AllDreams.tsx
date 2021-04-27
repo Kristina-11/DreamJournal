@@ -1,23 +1,28 @@
-import { useState } from "react"
+import React, { useEffect, useState } from "react"
 import all_dreams from '../../img/alldreams.png';
 import ADream from "./ADream";
+import { connect } from 'react-redux';
+import { DispatchDreamType, DreamState } from "../../react-app-env";
+import axios from "axios";
 
-const AllDreams = (props:unknown) => {
-  const [data, setData] = useState([
-    { id: '1', title: 'Dream 1', description: 'Lorem ipsum something easy', date: '12/12/2020', type: 'sad' },
-    { id: '2', title: 'Dream 2', description: 'Lorem ipsum something easy', date: '12/12/2020', type: 'sad' },
-    { id: '3', title: 'Dream 3', description: 'Lorem ipsum something easy', date: '12/12/2020', type: 'sad' },
-    { id: '4', title: 'Dream 4', description: 'Lorem ipsum something easy', date: '12/12/2020', type: 'sad' }
-  ]);
+const AllDreams = () => {
+  const [ data, setData ] = useState([]);
+  
+  useEffect(() => {
+    axios.get('https://dreamsapi.herokuapp.com/dreams')
+    .then((res) => {
+      setData(res.data)
+    })
+    .catch(err => {console.log(err)});
+  }, [])
 
-  console.log(props)
   return (
     <div className='main-all-dreams'>
       <h1>List of Dreams</h1>
       <div className="all-dreams">
         {
-          data ? data.map(obj => {
-            return <ADream {...obj} key={obj.id} />
+          data ? data.map((obj: any) => {
+            return <ADream {...obj} key={Math.random() * 99} />
           }) : 
           <div className='loading'>Loading...</div>
         }
@@ -28,5 +33,19 @@ const AllDreams = (props:unknown) => {
     </div>
   )
 }
+
+// const mapStateToProps = (state: any) => {
+//   return {
+//     dreams: state.dreams
+//   }
+// }
+
+// const mapDispatchToProps = (dispatch: DispatchDreamType) => {
+//   return {
+//     getDreams: () => {
+//       dispatch(getDreams())
+//     }
+//   }
+// }
 
 export default AllDreams

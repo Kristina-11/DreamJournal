@@ -1,4 +1,7 @@
 /// <reference types="react-scripts" />
+
+import { JsonObjectExpression } from "typescript"
+
 interface IDream {
   id: string | number,
   title: string,
@@ -9,14 +12,13 @@ interface IDream {
 
 // Initial dream state
 type DreamState = {
-  dreams: IDream[]
+  dreams: any
 }
 
 // Schema how actions should look
 type DreamAction = {
   type: string,
-  // dream: IDream,
-  payload?: unknown
+  payload?: any
 }
 
 type DispatchDreamType = (action: DreamAction) => DreamAction

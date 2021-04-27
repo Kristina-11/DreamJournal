@@ -1,15 +1,22 @@
-const initialState: DreamState = {
-  dreams: [
-    { id: '1', title: 'Dream 1', description: 'Lorem ipsum something easy', date: '12/12/2020', type: 'sad' },
-    { id: '2', title: 'Dream 2', description: 'Lorem ipsum something easy', date: '12/12/2020', type: 'sad' },
-    { id: '3', title: 'Dream 3', description: 'Lorem ipsum something easy', date: '12/12/2020', type: 'sad' },
-    { id: '4', title: 'Dream 4', description: 'Lorem ipsum something easy', date: '12/12/2020', type: 'sad' }
-  ]
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { DreamAction, DreamState } from '../../react-app-env';
+import * as dreamActionTypes from './dreamActionTypes'
+
+const initialState = {
+  dreams: []
 } 
 
 const dreamReducer = 
-(state: DreamState = initialState, action: DreamAction): DreamState => {
-  return state;
+(state = initialState, action: DreamAction): DreamState => {
+  switch(action.type) {
+    // case dreamActionTypes.GET_ALL_DREAMS:
+    //   return {
+    //     ...state,
+    //     dreams: action.payload
+    //   }
+  }
+  return state
 }
 
 export default dreamReducer
