@@ -23,13 +23,17 @@ export const requestFailed = (error:any):DreamAction => {
   }
 }
 
-// export const getDreams = () => {
-//   axios.get('https://dreamsapi.herokuapp.com/dreams')
-//     .then((res) => {
-//       return {
-//           type: dreamActionTypes.GET_ALL_DREAMS,
-//           payload: res.data
-//         }
-//       })
-//     .catch(err => {return console.log(err)});
-// }
+export const getDreams = () => {
+  return (dispatch: DispatchDreamType) => {
+    dispatch(getDreamsRequest())
+    axios.get('https://dreamsapi.herokuapp.com/dreams')
+      .then((res) => {
+        const dreamsData = res.data;
+        dispatch(requestSuccess(dreamsData))
+      })
+      .catch((err) => {
+        const error = err;
+        dispatch(requestFailed(error))
+      })
+  }
+}
