@@ -12,7 +12,9 @@ interface IDream {
 
 // Initial dream state
 type DreamState = {
-  dreams: any
+  loading: boolean,
+  data: any,
+  error?: object | string
 }
 
 // Schema how actions should look
