@@ -5,7 +5,7 @@ import { applyMiddleware, createStore, Store } from 'redux';
 import thunk from 'redux-thunk';
 import App from './App';
 
-import dreamReducer from './store/dreams/dreamReducer';
+import dreamReducer from './redux/dreams/dreamReducer';
 
 const store = createStore(dreamReducer, applyMiddleware(thunk));
 // const store: Store<DreamState, DreamAction> & {

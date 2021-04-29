@@ -1,19 +1,15 @@
 import { Link } from "react-router-dom"
+import { IDream } from "../../react-app-env"
 
-interface parameters {
-  id: string | number,
-  title: string,
-  description: string,
-  date: string,
-  type: string
-}
-
-const ADream = (obj: parameters) => {
+const ADream = (obj: IDream) => {
+  console.log(obj)
   return (
     <div className='dream'>
-      <h2>
-        <Link to={`/dreams/${obj.id}`}>{obj.title}</Link>
-      </h2>
+      <Link to={`/dreams/${obj.id}`}>
+        <h2>
+          {obj.title}
+        </h2>
+      </Link>
       <p>{obj.date}</p>
     </div>
   )

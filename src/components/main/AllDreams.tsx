@@ -8,6 +8,7 @@ import axios from "axios";
 const AllDreams = () => {
   const [ data, setData ] = useState([]);
   
+  // TODO: Handle this request with Redux
   useEffect(() => {
     axios.get('https://dreamsapi.herokuapp.com/dreams')
     .then((res) => {

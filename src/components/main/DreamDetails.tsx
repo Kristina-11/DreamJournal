@@ -1,12 +1,7 @@
 import { useParams } from "react-router-dom"
-
-interface parameters {
-  id:  string
-}
+import { IDream } from "../../react-app-env";
 
 const DreamDetails = () => {
-  const { id }:parameters = useParams();
-
   return (
     <div className='dream-details'>
       <h2></h2>
