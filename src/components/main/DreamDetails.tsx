@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { connect, useSelector } from "react-redux";
+import { connect } from "react-redux";
 import { useParams } from "react-router";
-import { DreamState, IDream } from "../../react-app-env";
+import { IDream } from "../../react-app-env";
+import adream from '../../img/adreama.png';
 
 // TODO: Move this to react-app-env.d.ts
 type dreamParam = {
@@ -66,11 +66,15 @@ const DreamDetails = ({ dreams }: any) => {
             </div>
           </>
       }
+      <div className="main-home-picture details-picture">
+        <img src={adream} /> 
+      </div>
     </div>
   )
 }
 
-// NOTE: Used mapState cause of useSelector not re-rendering property
+// NOTE: Used mapState cause of useSelector not re-rendering
+// unless changed property
 const mapStateToProps = (state: IDream) => {
   return {
     dreams: state

@@ -54,4 +54,44 @@ main {
       border-left: 3px solid $header-color;
     }
   }
+
+  .dream-details {
+    border-radius: 10px;
+    background-color: rgba($primary-light-theme, $alpha: 0.3);
+    width: 60%;
+    color: darken($primary-light-theme, 30%);
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      text-shadow: none;
+    }
+
+    h3 {
+      color: $primary-light-theme;
+    }
+
+    &-buttons {
+      padding: .6rem;
+
+      button {
+        margin-right: 0.2rem;
+        padding: 0.3rem;
+        border-radius: 10px;
+        border: 2px solid $header-color;
+        color: $header-color;
+
+        button:hover {
+          @include transition;
+        }
+      }
+    }
+
+    .details-picture img {
+      right: 1rem;
+      bottom: 1rem;
+    }
+  }
 }
