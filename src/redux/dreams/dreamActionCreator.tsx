@@ -16,7 +16,7 @@ export const requestSuccess = (data:any):DreamAction => {
   }
 }
 
-export const requestFailed = (error:any):DreamAction => {
+export const requestFailed = (error:object | string):DreamAction => {
   return {
     type: dreamActionTypes.REQUEST_FAILURE,
     payload: error
@@ -28,11 +28,11 @@ export const getDreams = () => {
     dispatch(getDreamsRequest())
     axios.get('https://dreamsapi.herokuapp.com/dreams')
       .then((res) => {
-        const dreamsData = res.data;
+        const dreamsData: [] = res.data;
         dispatch(requestSuccess(dreamsData))
       })
       .catch((err) => {
-        const error = err;
+        const error: string | object = err;
         dispatch(requestFailed(error))
       })
   }

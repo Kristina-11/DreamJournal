@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import { IDream } from "../../react-app-env"
 
+// Short data to show on screen
 const ADream = (obj: IDream) => {
-  console.log(obj)
   return (
     <div className='dream'>
-      <Link to={`/dreams/${obj.id}`}>
+      <Link to={`/dreams/${obj._id}`}>
         <h2>
           {obj.title}
         </h2>

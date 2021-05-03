@@ -8,8 +8,17 @@ import AddADream from './components/main/AddADream';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
 import DreamDetails from './components/main/DreamDetails';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getDreams } from './redux/dreams/dreamActionCreator';
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getDreams())
+  }, [])
+
   return (
     <HashRouter basename='/'>
       <div className="wrapper">
