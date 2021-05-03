@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 import add_dream from '../../img/adddreams.png';
+import { IDream } from '../../react-app-env';
+import { postADream } from '../../redux/dreams/dreamActionCreator';
 
 const AddADream = () => {
   const [ title, setTitle ] = useState('');
@@ -7,10 +10,20 @@ const AddADream = () => {
   const [ date, setDate ] = useState('');
   const [ type, setType ] = useState('');
 
+  const history = useHistory();
+
   const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(title, description, date, type);
+    const dream: object = {
+      title,
+      description,
+      date,
+      type
+    }
+    
+    postADream(dream);
+    //history.push('/dreams');
   }
 
   return (
@@ -36,11 +49,10 @@ const AddADream = () => {
           <div className='form-items'>
             <label htmlFor='type'>Type of dream</label>
             <select name="type" id="type" onChange={(e) => setType(e.target.value)} required>
-              <option value='0'>Choose</option>
-              <option value='Happy'>Happy</option>
-              <option value='Sad'>Sad</option>
-              <option value='Exciting'>Exciting</option>
-              <option value='Scary'>Scary</option>
+              <option value='happy'>Happy</option>
+              <option value='sad'>Sad</option>
+              <option value='exciting'>Exciting</option>
+              <option value='scary'>Scary</option>
             </select>
           </div>
 

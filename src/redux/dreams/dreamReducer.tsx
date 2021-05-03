@@ -12,7 +12,7 @@ const initialState: DreamState = {
 const dreamReducer = 
 (state = initialState, action: DreamAction): DreamState => {
   switch(action.type) {
-    case dreamActionTypes.GET_DREAMS_REQUEST:
+    case dreamActionTypes.DREAMS_REQUEST:
       return {
         ...state,
         loading: true
