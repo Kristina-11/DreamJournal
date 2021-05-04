@@ -75,6 +75,7 @@ main {
 
     &-buttons {
       padding: .6rem;
+      text-align: left;
 
       button {
         margin-right: 0.2rem;
@@ -87,6 +88,10 @@ main {
           @include transition;
         }
       }
+    }
+
+    .additional {
+      text-align: center;
     }
 
     .details-picture img {

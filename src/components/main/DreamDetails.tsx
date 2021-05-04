@@ -20,19 +20,15 @@ const DreamDetails = ({ dreams }: any) => {
     switch(number) {
       case 0:
         return 'Happy'
-        break;
 
       case 1: 
         return 'Sad'
-        break;
 
       case 2:
         return 'Exciting'
-        break;
 
       case 3: 
         return 'Scary'
-        break;
 
       default:
         return 'Error'
@@ -60,7 +56,7 @@ const DreamDetails = ({ dreams }: any) => {
               }
             </div>
 
-            <div className="dream-details-buttons">
+            <div className="dream-details-buttons additional">
               <button>Edit</button>
               <button>Delete</button>
             </div>

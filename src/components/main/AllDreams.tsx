@@ -15,6 +15,9 @@ const AllDreams = ({ dreams, loading} : any) => {
   return (
     <div className='main-all-dreams'>
       <h1>List of Dreams</h1>
+      <div className="dream-details-buttons">
+        <button>Delete All Dreams</button>
+      </div>
       <div className="all-dreams">
         {
         loading ? 

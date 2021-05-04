@@ -66,7 +66,9 @@ const AddADream = () => {
             </select>
           </div>
 
-          <button>Add A Dream</button>
+          <div className="dream-details-buttons">
+              <button>Add a Dream</button>
+            </div>
         </form>
 
         <div className="message">
