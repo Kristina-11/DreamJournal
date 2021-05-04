@@ -10,7 +10,6 @@ export const dreamsRequest = ():DreamAction => {
 }
 
 export const requestSuccess = (data:any):DreamAction => {
-  console.log(data)
   return {
     type: dreamActionTypes.REQUEST_SUCCESS,
     payload: data
@@ -18,10 +17,16 @@ export const requestSuccess = (data:any):DreamAction => {
 }
 
 export const requestFailed = (error:object | string):DreamAction => {
-  console.log(error)
   return {
     type: dreamActionTypes.REQUEST_FAILURE,
     payload: error
+  }
+}
+
+export const postRequestSuccess = (data:string):DreamAction => {
+  return {
+    type: dreamActionTypes.POST_REQUEST_SUCCESS,
+    payload: data
   }
 }
 

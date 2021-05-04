@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import add_dream from '../../img/adddreams.png';
+import { DispatchDreamType } from '../../react-app-env';
+import { dreamsRequest, postRequestSuccess, requestFailed } from '../../redux/dreams/dreamActionCreator';
 
 const AddADream = () => {
   const [ title, setTitle ] = useState('');
@@ -9,8 +12,11 @@ const AddADream = () => {
   const [ type, setType ] = useState('');
   const [ message, setMessage ] = useState('');
 
+  let dispatch: DispatchDreamType = useDispatch();
+
   const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    dispatch(dreamsRequest())
 
     let dream: object = {
       title,
@@ -22,14 +28,12 @@ const AddADream = () => {
     axios.post('https://dreamsapi.herokuapp.com/dreams', dream)
     .then((res) => {
       setMessage(res.data)
+      dispatch(postRequestSuccess(res.data))
     })
     .catch((err) => {
       setMessage('Request to the server failed :(')
+      dispatch(requestFailed(err))
     })
-
-    setTitle('')
-    setDescription('')
-    setDate('')
   }
 
   return (

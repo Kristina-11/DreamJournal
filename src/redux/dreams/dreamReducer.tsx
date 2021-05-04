@@ -1,12 +1,10 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { DreamAction, DreamState } from '../../react-app-env';
 import * as dreamActionTypes from './dreamActionTypes'
 
 const initialState: DreamState = {
   loading: true,
   data: [],
-  error: ''
+  message: ''
 } 
 
 const dreamReducer = 
@@ -23,20 +21,25 @@ const dreamReducer =
         ...state,
         loading: false,
         data: action.payload,
-        error: ''
       }
 
-      case dreamActionTypes.REQUEST_FAILURE:
-        return {
-          ...state,
-          loading: false,
-          data: [],
-          error: action.payload
-        }
+    case dreamActionTypes.REQUEST_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        message: action.payload
+      }
 
-      default:
-        return state
-}
+    case dreamActionTypes.POST_REQUEST_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        message: action.payload
+      }
+
+    default:
+      return state
+  }
 }
 
 export default dreamReducer

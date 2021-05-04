@@ -1,14 +1,16 @@
-import { useEffect } from "react"
 import all_dreams from '../../img/alldreams.png';
 import ADream from "./ADream";
-import { useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { DreamState, IDream } from "../../react-app-env";
-import { getDreams } from "../../redux/dreams/dreamActionCreator";
+import { useEffect } from 'react';
+import { getDreams } from '../../redux/dreams/dreamActionCreator';
 
-const AllDreams = () => { 
-  const dreams = useSelector((state: DreamState) => state.data);
-  const loading = useSelector((state: DreamState) => state.loading);
-  const error = useSelector((state: DreamState) => state.error);
+const AllDreams = ({ dreams, loading} : any) => { 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getDreams())
+  }, [])
 
   return (
     <div className='main-all-dreams'>
@@ -17,10 +19,12 @@ const AllDreams = () => {
         {
         loading ? 
           <div className='loading'>Loading...</div> :
-        error ? <div className='error'>{error }</div> :
-          dreams && dreams.map((obj: IDream) => {
+          dreams.length != 0 ? dreams.map((obj: IDream) => {
             return <ADream key={obj._id} {...obj} />
-          })
+          }) : 
+          <div className='error'>
+            Dream log empty
+          </div>
         }
       </div>
       <div className="main-home-picture">
@@ -30,4 +34,11 @@ const AllDreams = () => {
   )
 }
 
-export default AllDreams
+const mapStateToProps = (state:DreamState) => {
+  return {
+    dreams: state.data,
+    loading: state.loading
+  }
+}
+
+export default connect(mapStateToProps)(AllDreams)
