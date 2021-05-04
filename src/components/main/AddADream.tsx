@@ -29,6 +29,12 @@ const AddADream = () => {
     .then((res) => {
       setMessage(res.data)
       dispatch(postRequestSuccess(res.data))
+
+      setTitle('')
+      setDescription('')
+      setDate('')
+      setType('')
+      setMessage('')
     })
     .catch((err) => {
       setMessage('Request to the server failed :(')
@@ -43,22 +49,22 @@ const AddADream = () => {
         <form onSubmit={handleSubmit}>
           <div className='form-items'>
             <label htmlFor='title'>Title</label>
-            <input type="text" name="title" id="title" onChange={(e) => setTitle(e.target.value)} required/>
+            <input type="text" name="title" id="title" value={title} onChange={(e) => setTitle(e.target.value)} required/>
           </div>
 
           <div className='form-items'>
             <label htmlFor='description'>Description</label>
-            <input type="text" name="description" id="description" onChange={(e) => setDescription(e.target.value)} required/>
+            <input type="text" name="description" id="description" value={description} onChange={(e) => setDescription(e.target.value)} required/>
           </div>
 
           <div className='form-items'>
             <label htmlFor='date'>Date</label>
-            <input type='date' name="date" id="date" onChange={(e) => setDate(e.target.value)} required/>
+            <input type='date' name="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} required/>
           </div>
 
           <div className='form-items'>
             <label htmlFor='type'>Type of dream</label>
-            <select name="type" id="type" onChange={(e) => setType(e.target.value)} required>
+            <select name="type" id="type" value={type} onChange={(e) => setType(e.target.value)} required>
               <option value='happy'>Happy</option>
               <option value='sad'>Sad</option>
               <option value='exciting'>Exciting</option>

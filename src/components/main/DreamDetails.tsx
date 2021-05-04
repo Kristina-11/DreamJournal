@@ -1,7 +1,10 @@
-import { connect } from "react-redux";
-import { useParams } from "react-router";
+import { connect, useDispatch } from "react-redux";
+import { useHistory, useParams } from "react-router";
 import { IDream } from "../../react-app-env";
 import adream from '../../img/adreama.png';
+import { getDreams, postRequestSuccess, requestFailed, requestSuccess } from '../../redux/dreams/dreamActionCreator';
+import axios from "axios";
+import { useEffect } from "react";
 
 // TODO: Move this to react-app-env.d.ts
 type dreamParam = {
@@ -13,6 +16,13 @@ const DreamDetails = ({ dreams }: any) => {
   const data = dreams.data;
   const loading = dreams.loading;
   const error = dreams.error;
+
+  let dispatch = useDispatch();
+  let history = useHistory();
+
+  useEffect(() => {
+    dispatch(getDreams())
+  }, [])
 
   const dream = data.filter(( d:IDream ) => d._id === id);
 
@@ -33,6 +43,16 @@ const DreamDetails = ({ dreams }: any) => {
       default:
         return 'Error'
     }
+  }
+
+  const handleDelete = (id: string) => {
+    axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`)
+    .then((res) => {
+      history.push('/dreams')
+    })
+    .catch((err) => {
+      dispatch(requestFailed(err))
+    })
   }
 
   return (
@@ -58,7 +78,7 @@ const DreamDetails = ({ dreams }: any) => {
 
             <div className="dream-details-buttons additional">
               <button>Edit</button>
-              <button>Delete</button>
+              <button onClick={() => handleDelete(dream[0]._id)}>Delete</button>
             </div>
           </>
       }
