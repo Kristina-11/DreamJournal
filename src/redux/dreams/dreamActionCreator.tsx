@@ -2,7 +2,6 @@ import axios from 'axios'
 import { DreamAction } from '../../react-app-env';
 import * as dreamActionTypes from './dreamActionTypes'
 import { DispatchDreamType } from '../../react-app-env'
-import { title } from 'node:process';
 
 export const dreamsRequest = ():DreamAction => {
   return {
@@ -38,32 +37,6 @@ export const getDreams = () => {
       .catch((err) => {
         const error: string | object = err;
         dispatch(requestFailed(error))
-      })
-  }
-}
-
-export const postADream = (dream: object) => {
-  //console.log('Successfuly posting a dream', dream)
-  let axiosConfig = {
-    headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Accept": "*/*",
-        "Access-Control-Allow-Origin": "*",
-        "Host": "dreamsapi.herokuapp.com"
-    }
-  };
-  
-  // TODO: axios post method not working
-  return (dispatch: DispatchDreamType) => {
-    dispatch(dreamsRequest())
-    axios.post('https://dreamsapi.herokuapp.com/dreams', dream, axiosConfig)
-      .then((res) => {
-        console.log(res)
-        dispatch(requestSuccess(res))
-      })
-      .catch((err) => {
-        console.log(err)
-        dispatch(requestFailed(err))
       })
   }
 }

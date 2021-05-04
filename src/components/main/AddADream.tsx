@@ -1,29 +1,35 @@
+import axios from 'axios';
 import { useState } from 'react';
-import { useHistory } from 'react-router';
 import add_dream from '../../img/adddreams.png';
-import { IDream } from '../../react-app-env';
-import { postADream } from '../../redux/dreams/dreamActionCreator';
 
 const AddADream = () => {
   const [ title, setTitle ] = useState('');
   const [ description, setDescription ] = useState('');
   const [ date, setDate ] = useState('');
   const [ type, setType ] = useState('');
-
-  const history = useHistory();
+  const [ message, setMessage ] = useState('');
 
   const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const dream: object = {
+    let dream: object = {
       title,
       description,
       date,
       type
     }
-    
-    postADream(dream);
-    //history.push('/dreams');
+
+    axios.post('https://dreamsapi.herokuapp.com/dreams', dream)
+    .then((res) => {
+      setMessage(res.data)
+    })
+    .catch((err) => {
+      setMessage('Request to the server failed :(')
+    })
+
+    setTitle('')
+    setDescription('')
+    setDate('')
   }
 
   return (
@@ -60,7 +66,7 @@ const AddADream = () => {
         </form>
 
         <div className="message">
-
+          { message }
         </div>
       </div>
 

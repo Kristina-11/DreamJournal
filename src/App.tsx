@@ -8,7 +8,7 @@ import AddADream from './components/main/AddADream';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
 import DreamDetails from './components/main/DreamDetails';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getDreams } from './redux/dreams/dreamActionCreator';
 
