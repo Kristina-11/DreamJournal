@@ -34,7 +34,6 @@ const AddADream = () => {
       setDescription('')
       setDate('')
       setType('')
-      setMessage('')
     })
     .catch((err) => {
       setMessage('Request to the server failed :(')
@@ -64,7 +63,7 @@ const AddADream = () => {
 
           <div className='form-items'>
             <label htmlFor='type'>Type of dream</label>
-            <select name="type" id="type" value={type} onChange={(e) => setType(e.target.value)} required>
+            <select name="type" id="type" onChange={(e) => setType(e.target.value)} required>
               <option value='happy'>Happy</option>
               <option value='sad'>Sad</option>
               <option value='exciting'>Exciting</option>

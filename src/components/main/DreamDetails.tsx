@@ -2,7 +2,7 @@ import { connect, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import { IDream } from "../../react-app-env";
 import adream from '../../img/adreama.png';
-import { getDreams, requestFailed } from '../../redux/dreams/dreamActionCreator';
+import { getDreams, postRequestSuccess, requestFailed, requestSuccess } from '../../redux/dreams/dreamActionCreator';
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -21,6 +21,8 @@ const DreamDetails = ({ dreams }: any) => {
   let dispatch = useDispatch();
   let history = useHistory();
 
+  // TODO: Fix the states for dream objects
+  // On refresh data is not loaded
   const [ update, setUpdate ] = useState(false);
   const [ title, setTitle ] = useState(dream[0].title);
   const [ description, setDescription ] = useState(dream[0].description);
@@ -66,17 +68,23 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const updateFields = () => {
-    console.log(title, date, description, type)
+    console.log(title, date, description)
 
+    let dream:object = {
+      title,
+      date,
+      description
+    }
 
-    axios.patch(`https:/dreamsapi.herokuapp.com/dreams/${id}`, { title, description, date, type })
+    axios.patch(`https:/dreamsapi.herokuapp.com/dreams/${id}`, dream)
       .then((res) => {
+        dispatch(postRequestSuccess(res.data.message))
+        setUpdate(false)
         history.push('/dreams')
       })
       .catch((err) => {
         dispatch(requestFailed(err))
       })
-    setUpdate(false)
   }
 
   return (
@@ -122,14 +130,12 @@ const DreamDetails = ({ dreams }: any) => {
               <input type="text" placeholder={dream[0].description} onChange={(e) => setDescription(e.target.value)} />
             </div>
 
+            {/* TODO: Fix updating of a type */}
             <div className="form-items">
-              <label htmlFor='type'>Type of dream</label>
-              <select placeholder={dream[0].type} onChange={(e) => setType(e.target.value)}>
-                <option value='happy'>Happy</option>
-                <option value='sad'>Sad</option>
-                <option value='exciting'>Exciting</option>
-                <option value='scary'>Scary</option>
-              </select>
+              <p>Type of dream: </p>
+              { 
+                dreamTypes(dream[0].type)
+              }
             </div>
 
             <div className="dream-details-buttons additional">

@@ -23,6 +23,7 @@ export const requestFailed = (error:object | string):DreamAction => {
   }
 }
 
+// TODO: Rename this
 export const postRequestSuccess = (data:string):DreamAction => {
   return {
     type: dreamActionTypes.POST_REQUEST_SUCCESS,
