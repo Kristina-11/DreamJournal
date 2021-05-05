@@ -14,7 +14,7 @@ Technology used in the project: <br/>
 <ul>
   <li>Home - basic info about Dreams</li>
   <li>All Dreams - component that shows all dreams ( data from DreamApi > located at: https://github.com/Kristina-11/DreamApi )</li>
-  <li>Add A Dream - component with form for future uplouding of dreams ( at moment it console.logs the inserted data )</li>
+  <li>Add A Dream - component for uplouding new dreams</li>
 </ul>
 
 ## Preview of a first page
