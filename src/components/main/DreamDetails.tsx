@@ -54,9 +54,14 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const handleDelete = (id: string) => {
-    //let hostHeader = { Host: "dreamsapi.herokuapp.com" }; 
+    let hostHeader = { "Content-Type" :
+      "application/json; charset=utf-8" }; 
 
-    axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`)
+    axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`, {
+      headers: {
+        "Content-Type" : "application/json; charset=utf-8" 
+      }
+    })
     .then((res) => {
       console.log(res)
       history.push('/dreams')
