@@ -13,35 +13,22 @@ type dreamParam = {
 
 const DreamDetails = ({ dreams }: any) => {
   const { id } = useParams<dreamParam>();
-  //const data = dreams.data;
+  const data = dreams.data;
   const loading = dreams.loading;
   const error = dreams.error;
-  //const dream = data.filter(( d:IDream ) => d._id === id);
-  const [ dream, setDream ] = useState();
-  console.log(dream)
+  const dream = data.filter(( d:IDream ) => d._id === id);
 
   let dispatch = useDispatch();
   let history = useHistory();
 
-  useEffect(() => {
-    axios.get(`https:/dreamsapi.herokuapp.com/dreams/${id}`)
-      .then((res) => {
-        console.log(res)
-        setDream(res.data);
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
-
   // TODO: Fix the states for dream objects
   // On refresh data is not loaded
   const [ update, setUpdate ] = useState(false);
-  const [ title, setTitle ] = useState('');
-  const [ description, setDescription ] = useState();
-  const [ date, setDate ] = useState();
+  const [ title, setTitle ] = useState(dream[0].title);
+  const [ description, setDescription ] = useState(dream[0].description);
+  const [ date, setDate ] = useState(dream[0].date);
   // TODO: Fix updating of a type
-  const [ type, setType ] = useState();
+  const [ type, setType ] = useState(dream[0].type);
 
   useEffect(() => {
     dispatch(getDreams())
@@ -85,7 +72,6 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const updateFields = (id:string) => {
-    //let hostHeader = { Host: "dreamsapi.herokuapp.com" }; 
 
     let dream:object = {
       title,
@@ -106,13 +92,13 @@ const DreamDetails = ({ dreams }: any) => {
 
   return (
     <div className='dream-details'>
-      {/* {
+      {
         loading ? 
           <div className='loading'>Loading...</div> :
           error ? <div className='error'> { error }</div> :
           ( !update ? 
           <> 
-            <h1>{dream.title}</h1>
+            <h1>{dream[0].title}</h1>
             <h3>{dream[0].date}</h3>
 
             <div className="dream-details-description">
@@ -158,7 +144,7 @@ const DreamDetails = ({ dreams }: any) => {
               <button onClick={() => updateFields(dream[0]._id)}>Done</button>
             </div>
           </div> )
-      } */}
+      }
       <div className="main-home-picture details-picture">
         <img src={adream} /> 
       </div>
