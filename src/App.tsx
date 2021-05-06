@@ -11,7 +11,7 @@ import DreamDetails from './components/main/DreamDetails';
 
 const App = () => {
   return (
-    <HashRouter basename='/'>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <div className="wrapper">
         <Nav />
 
