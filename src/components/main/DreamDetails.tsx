@@ -54,14 +54,18 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const handleDelete = (id: string) => {
-    axios({
-      method: 'DELETE',
-      url: 'https:/dreamsapi.herokuapp.com/dreams/'+ id
-    })
+    const axiosBaseURL = axios.create({
+      method: "DELETE",
+      baseURL: `https:/dreamsapi.herokuapp.com/dreams/${id}`
+    });
+
+    axiosBaseURL({})
     .then((res) => {
+      console.log(res)
       history.push('/dreams')
     })
     .catch((err) => {
+      console.log(err)
       dispatch(requestFailed(err))
     })
   }
