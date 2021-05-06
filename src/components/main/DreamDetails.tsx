@@ -27,12 +27,12 @@ const DreamDetails = ({ dreams }: any) => {
   const [ title, setTitle ] = useState(dream[0].title);
   const [ description, setDescription ] = useState(dream[0].description);
   const [ date, setDate ] = useState(dream[0].date);
+  // TODO: Fix updating of a type
   const [ type, setType ] = useState(dream[0].type);
 
   useEffect(() => {
     dispatch(getDreams())
   }, [])
-
 
   const dreamTypes = (number: number) => {
     switch(number) {
@@ -54,7 +54,7 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const handleDelete = (id: string) => {
-    axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`)
+    axios.delete('https:/dreamsapi.herokuapp.com/dreams/'+ id)
     .then((res) => {
       history.push('/dreams')
     })
@@ -67,16 +67,15 @@ const DreamDetails = ({ dreams }: any) => {
     setUpdate(true)
   }
 
-  const updateFields = () => {
+  const updateFields = (id:string) => {
     console.log(title, date, description)
-
     let dream:object = {
       title,
       date,
       description
     }
 
-    axios.patch(`https:/dreamsapi.herokuapp.com/dreams/${id}`, dream)
+    axios.patch('https:/dreamsapi.herokuapp.com/dreams/' + id, dream)
       .then((res) => {
         dispatch(postRequestSuccess(res.data.message))
         setUpdate(false)
@@ -130,7 +129,6 @@ const DreamDetails = ({ dreams }: any) => {
               <input type="text" placeholder={dream[0].description} onChange={(e) => setDescription(e.target.value)} />
             </div>
 
-            {/* TODO: Fix updating of a type */}
             <div className="form-items">
               <p>Type of dream: </p>
               { 
@@ -139,7 +137,7 @@ const DreamDetails = ({ dreams }: any) => {
             </div>
 
             <div className="dream-details-buttons additional">
-              <button onClick={updateFields}>Done</button>
+              <button onClick={() => updateFields(dream[0]._id)}>Done</button>
             </div>
           </div> )
       }
