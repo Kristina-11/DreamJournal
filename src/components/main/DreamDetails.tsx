@@ -59,11 +59,7 @@ const DreamDetails = ({ dreams }: any) => {
       baseURL: `https:/dreamsapi.herokuapp.com/dreams/${id}`
     });
 
-    axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`, {
-      headers: {
-        host: 'dreamsapi.herokuapp.com'
-      }
-    })
+    axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`)
     .then((res) => {
       console.log(res)
       history.push('/dreams')
