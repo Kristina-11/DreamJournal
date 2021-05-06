@@ -72,7 +72,7 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const updateFields = (id:string) => {
-    let hostHeader = { Host: "dreamsapi.herokuapp.com" }; 
+    //let hostHeader = { Host: "dreamsapi.herokuapp.com" }; 
 
     let dream:object = {
       title,
@@ -80,9 +80,7 @@ const DreamDetails = ({ dreams }: any) => {
       description
     }
 
-    axios.patch(`https:/dreamsapi.herokuapp.com/dreams/${id}`, dream, {
-      headers: hostHeader
-    })
+    axios.patch(`https:/dreamsapi.herokuapp.com/dreams/${id}`, dream)
       .then((res) => {
         dispatch(postRequestSuccess(res.data.message))
         setUpdate(false)
