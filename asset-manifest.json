@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/Kristina-11/DreamJournal/static/css/main.5185fa69.chunk.css",
-    "main.js": "/Kristina-11/DreamJournal/static/js/main.3b40491c.chunk.js",
-    "main.js.map": "/Kristina-11/DreamJournal/static/js/main.3b40491c.chunk.js.map",
-    "runtime-main.js": "/Kristina-11/DreamJournal/static/js/runtime-main.f7163867.js",
-    "runtime-main.js.map": "/Kristina-11/DreamJournal/static/js/runtime-main.f7163867.js.map",
-    "static/js/2.c3d0b016.chunk.js": "/Kristina-11/DreamJournal/static/js/2.c3d0b016.chunk.js",
-    "static/js/2.c3d0b016.chunk.js.map": "/Kristina-11/DreamJournal/static/js/2.c3d0b016.chunk.js.map",
-    "index.html": "/Kristina-11/DreamJournal/index.html",
-    "static/css/main.5185fa69.chunk.css.map": "/Kristina-11/DreamJournal/static/css/main.5185fa69.chunk.css.map",
-    "static/js/2.c3d0b016.chunk.js.LICENSE.txt": "/Kristina-11/DreamJournal/static/js/2.c3d0b016.chunk.js.LICENSE.txt",
-    "static/media/adddream.5915c82a.png": "/Kristina-11/DreamJournal/static/media/adddream.5915c82a.png",
-    "static/media/adddreams.403ccaea.png": "/Kristina-11/DreamJournal/static/media/adddreams.403ccaea.png",
-    "static/media/adreama.05459a24.png": "/Kristina-11/DreamJournal/static/media/adreama.05459a24.png",
-    "static/media/alldreams.58278675.png": "/Kristina-11/DreamJournal/static/media/alldreams.58278675.png",
-    "static/media/App.css": "/Kristina-11/DreamJournal/static/media/background.66d1c877.png",
-    "static/media/github.7c0dc29d.png": "/Kristina-11/DreamJournal/static/media/github.7c0dc29d.png",
-    "static/media/home.f5c9f331.png": "/Kristina-11/DreamJournal/static/media/home.f5c9f331.png",
-    "static/media/linedin.b1bebb39.png": "/Kristina-11/DreamJournal/static/media/linedin.b1bebb39.png"
+    "main.css": "/DreamJournal/static/css/main.a1be84e9.chunk.css",
+    "main.js": "/DreamJournal/static/js/main.00cba6dd.chunk.js",
+    "main.js.map": "/DreamJournal/static/js/main.00cba6dd.chunk.js.map",
+    "runtime-main.js": "/DreamJournal/static/js/runtime-main.e1caa334.js",
+    "runtime-main.js.map": "/DreamJournal/static/js/runtime-main.e1caa334.js.map",
+    "static/js/2.c3d0b016.chunk.js": "/DreamJournal/static/js/2.c3d0b016.chunk.js",
+    "static/js/2.c3d0b016.chunk.js.map": "/DreamJournal/static/js/2.c3d0b016.chunk.js.map",
+    "index.html": "/DreamJournal/index.html",
+    "static/css/main.a1be84e9.chunk.css.map": "/DreamJournal/static/css/main.a1be84e9.chunk.css.map",
+    "static/js/2.c3d0b016.chunk.js.LICENSE.txt": "/DreamJournal/static/js/2.c3d0b016.chunk.js.LICENSE.txt",
+    "static/media/adddream.5915c82a.png": "/DreamJournal/static/media/adddream.5915c82a.png",
+    "static/media/adddreams.403ccaea.png": "/DreamJournal/static/media/adddreams.403ccaea.png",
+    "static/media/adreama.05459a24.png": "/DreamJournal/static/media/adreama.05459a24.png",
+    "static/media/alldreams.58278675.png": "/DreamJournal/static/media/alldreams.58278675.png",
+    "static/media/App.css": "/DreamJournal/static/media/background.66d1c877.png",
+    "static/media/github.7c0dc29d.png": "/DreamJournal/static/media/github.7c0dc29d.png",
+    "static/media/home.f5c9f331.png": "/DreamJournal/static/media/home.f5c9f331.png",
+    "static/media/linedin.b1bebb39.png": "/DreamJournal/static/media/linedin.b1bebb39.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.f7163867.js",
+    "static/js/runtime-main.e1caa334.js",
     "static/js/2.c3d0b016.chunk.js",
-    "static/css/main.5185fa69.chunk.css",
-    "static/js/main.3b40491c.chunk.js"
+    "static/css/main.a1be84e9.chunk.css",
+    "static/js/main.00cba6dd.chunk.js"
   ]
 }
