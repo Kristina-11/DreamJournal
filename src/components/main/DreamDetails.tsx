@@ -54,12 +54,11 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const handleDelete = (id: string) => {
-    const axiosBaseURL = axios.create({
-      method: "DELETE",
-      baseURL: `https:/dreamsapi.herokuapp.com/dreams/${id}`
-    });
+    let hostHeader = { Host: "dreamsapi.herokuapp.com" }; 
 
-    axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`)
+    axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`, {
+      headers: hostHeader
+    })
     .then((res) => {
       console.log(res)
       history.push('/dreams')
@@ -75,14 +74,17 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const updateFields = (id:string) => {
-    console.log(title, date, description)
+    let hostHeader = { Host: "dreamsapi.herokuapp.com" }; 
+
     let dream:object = {
       title,
       date,
       description
     }
 
-    axios.patch('https:/dreamsapi.herokuapp.com/dreams/' + id, dream)
+    axios.patch(`https:/dreamsapi.herokuapp.com/dreams/${id}`, dream, {
+      headers: hostHeader
+    })
       .then((res) => {
         dispatch(postRequestSuccess(res.data.message))
         setUpdate(false)
