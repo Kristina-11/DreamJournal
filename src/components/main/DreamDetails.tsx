@@ -54,7 +54,7 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const handleDelete = (id: string) => {
-    axios.delete('https://dreamsapi.herokuapp.com//dreams//'+ id)
+    axios.delete('https:/dreamsapi.herokuapp.com/dreams/'+ id)
     .then((res) => {
       history.push('/dreams')
     })
@@ -75,7 +75,7 @@ const DreamDetails = ({ dreams }: any) => {
       description
     }
 
-    axios.patch('https://dreamsapi.herokuapp.com//dreams//' + id, dream)
+    axios.patch('https:/dreamsapi.herokuapp.com/dreams/' + id, dream)
       .then((res) => {
         dispatch(postRequestSuccess(res.data.message))
         setUpdate(false)

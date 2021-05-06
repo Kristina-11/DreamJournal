@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Switch } from 'react-router-dom';
 
 import Nav from './components/Nav';
 import Home from './components/main/Home';
@@ -11,7 +11,7 @@ import DreamDetails from './components/main/DreamDetails';
 
 const App = () => {
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="wrapper">
         <Nav />
 
@@ -37,7 +37,7 @@ const App = () => {
 
         <Footer />
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
