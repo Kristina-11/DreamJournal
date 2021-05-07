@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { API } from '../..';
 import add_dream from '../../img/adddreams.png';
 import { DispatchDreamType } from '../../react-app-env';
 import { dreamsRequest, postRequestSuccess, requestFailed } from '../../redux/dreams/dreamActionCreator';
@@ -25,7 +26,7 @@ const AddADream = () => {
       type
     }
 
-    axios.post('/', dream)
+    axios.post(API, dream)
     .then((res) => {
       setMessage(res.data)
       dispatch(postRequestSuccess(res.data))

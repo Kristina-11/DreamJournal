@@ -2,6 +2,7 @@ import { DreamAction } from '../../react-app-env';
 import * as dreamActionTypes from './dreamActionTypes'
 import { DispatchDreamType } from '../../react-app-env'
 import axios from 'axios';
+import { API } from '../..';
 
 export const dreamsRequest = ():DreamAction => {
   return {
@@ -48,7 +49,7 @@ export const deleteADreamSuccess = (data: string):DreamAction => {
 export const getDreams = () => {
   return (dispatch: DispatchDreamType) => {
     dispatch(dreamsRequest())
-    axios.get('/')
+    axios.get(API)
       .then((res) => {
         const dreamsData: [] = res.data;
         dispatch(requestSuccess(dreamsData))

@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import App from './App';
 import dreamReducer from './redux/dreams/dreamReducer';
 
-axios.defaults.baseURL = 'https://dreamsapi.herokuapp.com/dreams';
+export const API = 'https://dreamsapi.herokuapp.com/dreams';
 
 const store = createStore(dreamReducer, applyMiddleware(thunk));
 

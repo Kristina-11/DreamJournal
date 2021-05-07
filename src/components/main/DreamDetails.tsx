@@ -5,6 +5,7 @@ import adream from '../../img/adreama.png';
 import { deleteADreamRequest, deleteADreamSuccess, getDreams, postRequestSuccess, requestFailed } from '../../redux/dreams/dreamActionCreator';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API } from "../..";
 
 // TODO: Move this to react-app-env.d.ts
 type dreamParam = {
@@ -55,7 +56,7 @@ const DreamDetails = ({ dreams }: any) => {
 
   const handleDelete = (id: string) => {
     dispatch(deleteADreamRequest())
-    axios.delete(`/${id}`)
+    axios.delete(API + `/${id}`)
     .then((res) => {
       dispatch(deleteADreamSuccess(res.data))
       console.log(res)
@@ -78,7 +79,7 @@ const DreamDetails = ({ dreams }: any) => {
       description
     }
 
-    axios.patch(`/${id}`, dream)
+    axios.patch(API + `/${id}`, dream)
       .then((res) => {
         dispatch(postRequestSuccess(res.data.message))
         setUpdate(false)

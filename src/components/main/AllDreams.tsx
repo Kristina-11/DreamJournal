@@ -5,6 +5,7 @@ import { DreamState, IDream } from "../../react-app-env";
 import { useEffect, useState } from 'react';
 import { getDreams, requestFailed } from '../../redux/dreams/dreamActionCreator';
 import axios from 'axios';
+import { API } from '../..';
 
 const AllDreams = ({ dreams, loading} : any) => { 
   const [ search, setSearch ] = useState('0');
@@ -16,7 +17,7 @@ const AllDreams = ({ dreams, loading} : any) => {
   }, [])
 
   const handleDelete = () => {
-    axios.delete('/')
+    axios.delete(API)
       .then((res) => {
         //console.log(res.data)
         dispatch(getDreams())
