@@ -28,8 +28,8 @@ const DreamDetails = ({ dreams }: any) => {
   const [ title, setTitle ] = useState(dream[0].title);
   const [ description, setDescription ] = useState(dream[0].description);
   const [ date, setDate ] = useState(dream[0].date);
-  // TODO: Fix updating of a type
   const [ type, setType ] = useState(dream[0].type);
+  const [ message, setMessage ] = useState('');
 
   useEffect(() => {
     dispatch(getDreams())
@@ -59,7 +59,6 @@ const DreamDetails = ({ dreams }: any) => {
     axios.delete(API + `/${id}`)
     .then((res) => {
       dispatch(deleteADreamSuccess(res.data))
-      console.log(res)
       history.push('/dreams')
     })
     .catch((err) => {
@@ -73,11 +72,16 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const updateFields = (id:string) => {
+    let typeNum:number = parseInt(type)
+    console.log(typeNum)
+
     let dream:object = {
       title,
       date,
-      description
+      description,
+      type: typeNum
     }
+    console.log(dream)
 
     axios.patch(API + `/${id}`, dream)
       .then((res) => {
@@ -135,16 +139,23 @@ const DreamDetails = ({ dreams }: any) => {
 
             <div className="form-items">
               <p>Type of dream: </p>
-              { 
-                dreamTypes(dream[0].type)
-              }
+              <select name="type" id="type" onChange={(e) => setType(e.target.value)}>
+                <option value=''>Choose</option>
+                <option value='0'>Happy</option>
+                <option value='1'>Sad</option>
+                <option value='2'>Exciting</option>
+                <option value='3'>Scary</option>
+              </select>
             </div>
 
             <div className="dream-details-buttons additional">
-              <button onClick={() => updateFields(dream[0]._id)}>Done</button>
+              <button onClick={() => updateFields(id)}>Done</button>
             </div>
           </div> )
       }
+      <div className='message'>
+        { message }
+      </div>
       <div className="main-home-picture details-picture">
         <img src={adream} /> 
       </div>
