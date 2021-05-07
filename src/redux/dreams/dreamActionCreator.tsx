@@ -1,7 +1,7 @@
 import { DreamAction } from '../../react-app-env';
 import * as dreamActionTypes from './dreamActionTypes'
 import { DispatchDreamType } from '../../react-app-env'
-import { API } from '../../axios';
+import axios from 'axios';
 
 export const dreamsRequest = ():DreamAction => {
   return {
@@ -31,11 +31,24 @@ export const postRequestSuccess = (data:string):DreamAction => {
   }
 }
 
+export const deleteADreamRequest = ():DreamAction => {
+  return {
+    type: dreamActionTypes.DELETE_A_DREAM_REQUEST
+  }
+}
+
+export const deleteADreamSuccess = (data: string):DreamAction => {
+  return {
+    type: dreamActionTypes.DELETE_A_DREAM_REQUEST_SUCCESS,
+    payload: data
+  }
+}
+
 // NOTE: Async action creators
 export const getDreams = () => {
   return (dispatch: DispatchDreamType) => {
     dispatch(dreamsRequest())
-    API.get('dreams')
+    axios.get('/')
       .then((res) => {
         const dreamsData: [] = res.data;
         dispatch(requestSuccess(dreamsData))

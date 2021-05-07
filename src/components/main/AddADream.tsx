@@ -25,7 +25,7 @@ const AddADream = () => {
       type
     }
 
-    axios.post('dreams', dream)
+    axios.post('/', dream)
     .then((res) => {
       setMessage(res.data)
       dispatch(postRequestSuccess(res.data))

@@ -37,6 +37,19 @@ const dreamReducer =
         message: action.payload
       }
 
+    case dreamActionTypes.DELETE_A_DREAM_REQUEST:
+      return {
+        ...state,
+        loading: true
+      }
+
+    case dreamActionTypes.DELETE_A_DREAM_REQUEST_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        message: action.payload
+      }
+
     default:
       return state
   }

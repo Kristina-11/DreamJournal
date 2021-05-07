@@ -2,9 +2,9 @@ import { connect, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import { IDream } from "../../react-app-env";
 import adream from '../../img/adreama.png';
-import { getDreams, postRequestSuccess, requestFailed } from '../../redux/dreams/dreamActionCreator';
+import { deleteADreamRequest, deleteADreamSuccess, getDreams, postRequestSuccess, requestFailed } from '../../redux/dreams/dreamActionCreator';
 import { useEffect, useState } from "react";
-import { API } from "../../axios";
+import axios from "axios";
 
 // TODO: Move this to react-app-env.d.ts
 type dreamParam = {
@@ -54,8 +54,10 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const handleDelete = (id: string) => {
-    API.delete(`dreams/${id}`)
+    dispatch(deleteADreamRequest())
+    axios.delete(`/${id}`)
     .then((res) => {
+      dispatch(deleteADreamSuccess(res.data))
       console.log(res)
       history.push('/dreams')
     })
@@ -76,7 +78,7 @@ const DreamDetails = ({ dreams }: any) => {
       description
     }
 
-    API.patch(`dreams/${id}`, dream)
+    axios.patch(`/${id}`, dream)
       .then((res) => {
         dispatch(postRequestSuccess(res.data.message))
         setUpdate(false)
