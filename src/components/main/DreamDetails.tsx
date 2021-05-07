@@ -17,6 +17,7 @@ const DreamDetails = ({ dreams }: any) => {
   const loading = dreams.loading;
   const error = dreams.error;
   const dream = data.filter(( d:IDream ) => d._id === id);
+  console.log(id)
 
   let dispatch = useDispatch();
   let history = useHistory();
@@ -54,9 +55,6 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const handleDelete = (id: string) => {
-    let hostHeader = { "Content-Type" :
-      "application/json; charset=utf-8" }; 
-
     axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`, {
       headers: {
         "Content-Type" : "application/json; charset=utf-8" 
@@ -119,7 +117,7 @@ const DreamDetails = ({ dreams }: any) => {
 
             <div className="dream-details-buttons additional">
               <button onClick={() => handleEdit()}>Edit</button>
-              <button onClick={() => handleDelete(dream[0]._id)}>Delete</button>
+              <button onClick={() => handleDelete(id)}>Delete</button>
             </div>
           </> : 
           <div className='all-dreams dream-form'>
