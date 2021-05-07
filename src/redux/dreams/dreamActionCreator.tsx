@@ -35,7 +35,7 @@ export const postRequestSuccess = (data:string):DreamAction => {
 export const getDreams = () => {
   return (dispatch: DispatchDreamType) => {
     dispatch(dreamsRequest())
-    axios.get('https://dreamsapi.herokuapp.com/dreams')
+    axios.get('dreams')
       .then((res) => {
         const dreamsData: [] = res.data;
         dispatch(requestSuccess(dreamsData))

@@ -25,7 +25,7 @@ const AddADream = () => {
       type
     }
 
-    axios.post('https://dreamsapi.herokuapp.com/dreams', dream)
+    axios.post('dreams', dream)
     .then((res) => {
       setMessage(res.data)
       dispatch(postRequestSuccess(res.data))

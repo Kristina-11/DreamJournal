@@ -17,7 +17,6 @@ const DreamDetails = ({ dreams }: any) => {
   const loading = dreams.loading;
   const error = dreams.error;
   const dream = data.filter(( d:IDream ) => d._id === id);
-  console.log(id)
 
   let dispatch = useDispatch();
   let history = useHistory();
@@ -55,13 +54,7 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const handleDelete = (id: string) => {
-    axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`, {
-      headers: {
-        "Host": "https:/dreamsapi.herokuapp.com",
-        "Filename": `/dreams/${id}`,
-        "Content-Type" : "application/json; charset=utf-8" 
-      }
-    })
+    axios.delete(`dreams/${id}`)
     .then((res) => {
       console.log(res)
       history.push('/dreams')
@@ -77,14 +70,13 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const updateFields = (id:string) => {
-
     let dream:object = {
       title,
       date,
       description
     }
 
-    axios.patch(`https:/dreamsapi.herokuapp.com/dreams/${id}`, dream)
+    axios.patch(`dreams/${id}`, dream)
       .then((res) => {
         dispatch(postRequestSuccess(res.data.message))
         setUpdate(false)

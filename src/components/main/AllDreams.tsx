@@ -16,7 +16,7 @@ const AllDreams = ({ dreams, loading} : any) => {
   }, [])
 
   const handleDelete = () => {
-    axios.delete('https://dreamsapi.herokuapp.com/dreams')
+    axios.delete('dreams')
       .then((res) => {
         //console.log(res.data)
         dispatch(getDreams())
