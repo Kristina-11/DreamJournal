@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/DreamJournal/static/css/main.a1be84e9.chunk.css",
-    "main.js": "/DreamJournal/static/js/main.0a2a2a59.chunk.js",
-    "main.js.map": "/DreamJournal/static/js/main.0a2a2a59.chunk.js.map",
+    "main.js": "/DreamJournal/static/js/main.662452ea.chunk.js",
+    "main.js.map": "/DreamJournal/static/js/main.662452ea.chunk.js.map",
     "runtime-main.js": "/DreamJournal/static/js/runtime-main.e1caa334.js",
     "runtime-main.js.map": "/DreamJournal/static/js/runtime-main.e1caa334.js.map",
-    "static/js/2.1d16813e.chunk.js": "/DreamJournal/static/js/2.1d16813e.chunk.js",
-    "static/js/2.1d16813e.chunk.js.map": "/DreamJournal/static/js/2.1d16813e.chunk.js.map",
+    "static/js/2.d1fea2d9.chunk.js": "/DreamJournal/static/js/2.d1fea2d9.chunk.js",
+    "static/js/2.d1fea2d9.chunk.js.map": "/DreamJournal/static/js/2.d1fea2d9.chunk.js.map",
     "index.html": "/DreamJournal/index.html",
     "static/css/main.a1be84e9.chunk.css.map": "/DreamJournal/static/css/main.a1be84e9.chunk.css.map",
-    "static/js/2.1d16813e.chunk.js.LICENSE.txt": "/DreamJournal/static/js/2.1d16813e.chunk.js.LICENSE.txt",
+    "static/js/2.d1fea2d9.chunk.js.LICENSE.txt": "/DreamJournal/static/js/2.d1fea2d9.chunk.js.LICENSE.txt",
     "static/media/adddream.5915c82a.png": "/DreamJournal/static/media/adddream.5915c82a.png",
     "static/media/adddreams.403ccaea.png": "/DreamJournal/static/media/adddreams.403ccaea.png",
     "static/media/adreama.05459a24.png": "/DreamJournal/static/media/adreama.05459a24.png",
@@ -21,8 +21,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.e1caa334.js",
-    "static/js/2.1d16813e.chunk.js",
+    "static/js/2.d1fea2d9.chunk.js",
     "static/css/main.a1be84e9.chunk.css",
-    "static/js/main.0a2a2a59.chunk.js"
+    "static/js/main.662452ea.chunk.js"
   ]
 }
