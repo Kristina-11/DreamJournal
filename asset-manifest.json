@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/DreamJournal/static/css/main.a1be84e9.chunk.css",
-    "main.js": "/DreamJournal/static/js/main.e18a9290.chunk.js",
-    "main.js.map": "/DreamJournal/static/js/main.e18a9290.chunk.js.map",
+    "main.js": "/DreamJournal/static/js/main.b74ef03c.chunk.js",
+    "main.js.map": "/DreamJournal/static/js/main.b74ef03c.chunk.js.map",
     "runtime-main.js": "/DreamJournal/static/js/runtime-main.e1caa334.js",
     "runtime-main.js.map": "/DreamJournal/static/js/runtime-main.e1caa334.js.map",
     "static/js/2.26d73256.chunk.js": "/DreamJournal/static/js/2.26d73256.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.e1caa334.js",
     "static/js/2.26d73256.chunk.js",
     "static/css/main.a1be84e9.chunk.css",
-    "static/js/main.e18a9290.chunk.js"
+    "static/js/main.b74ef03c.chunk.js"
   ]
 }
