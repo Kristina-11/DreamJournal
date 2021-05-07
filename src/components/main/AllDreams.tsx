@@ -6,10 +6,9 @@ import { useEffect, useState } from 'react';
 import { anyDreamRequest, anyDreamRequestResult, getDreams } from '../../redux/dreams/dreamActionCreator';
 import axios from 'axios';
 import { API } from '../..';
+import Search from './Search';
 
 const AllDreams = ({ dreams, loading} : any) => { 
-  const [ search, setSearch ] = useState('0');
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,16 +35,7 @@ const AllDreams = ({ dreams, loading} : any) => {
         <button onClick={handleDelete}>Delete All Dreams</button>
       </div>
 
-      {/* <div className="search-dreams">
-        <label htmlFor="search">Search dreams by type: </label>
-        <select name="type" id="type" onChange={(e) => setSearch(e.target.value)}>
-          <option value='0'>Search...</option>
-          <option value='happy'>Happy</option>
-          <option value='sad'>Sad</option>
-          <option value='exciting'>Exciting</option>
-          <option value='scary'>Scary</option>
-        </select>
-      </div> */}
+      <Search />
 
       <div className="all-dreams">
         {
