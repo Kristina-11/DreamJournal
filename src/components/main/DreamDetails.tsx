@@ -57,6 +57,8 @@ const DreamDetails = ({ dreams }: any) => {
   const handleDelete = (id: string) => {
     axios.delete(`https:/dreamsapi.herokuapp.com/dreams/${id}`, {
       headers: {
+        "Host": "https:/dreamsapi.herokuapp.com",
+        "Filename": `/dreams/${id}`,
         "Content-Type" : "application/json; charset=utf-8" 
       }
     })
