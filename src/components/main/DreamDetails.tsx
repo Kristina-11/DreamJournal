@@ -14,22 +14,32 @@ type dreamParam = {
 
 const DreamDetails = ({ dreams }: any) => {
   const { id } = useParams<dreamParam>();
-  const data = dreams.data;
   const loading = dreams.loading;
-  const error = dreams.error;
-  const dream = data.filter(( d:IDream ) => d._id === id);
+  //const message = dreams.message;
+  
+  const [ update, setUpdate ] = useState(false);
+  const [ title, setTitle ] = useState('');
+  const [ description, setDescription ] = useState('');
+  const [ date, setDate ] = useState('');
+  const [ type, setType ] = useState<any>();
+
+  // Getting one dream
+  useEffect(() => {
+    axios.get(API + `/${id}`)
+    .then((res) => {
+      setTitle(res.data.title)
+      setDescription(res.data.description)
+      setDate(res.data.date)
+      setType(res.data.type)
+      console.log(res)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }, [])
 
   let dispatch = useDispatch();
   let history = useHistory();
-
-  // TODO: Fix the states for dream objects
-  // On refresh data is not loaded
-  const [ update, setUpdate ] = useState(false);
-  const [ title, setTitle ] = useState(dream[0].title);
-  const [ description, setDescription ] = useState(dream[0].description);
-  const [ date, setDate ] = useState(dream[0].date);
-  const [ type, setType ] = useState(dream[0].type);
-  const [ message, setMessage ] = useState('');
 
   useEffect(() => {
     dispatch(getDreams())
@@ -98,21 +108,20 @@ const DreamDetails = ({ dreams }: any) => {
     <div className='dream-details'>
       {
         loading ? 
-          <div className='loading'>Loading...</div> :
-          error ? <div className='error'> { error }</div> :
+          <div className='loading'>Loading...</div> : 
           ( !update ? 
           <> 
-            <h1>{dream[0].title}</h1>
-            <h3>{dream[0].date}</h3>
+            <h1>{ title }</h1>
+            <h3>{ date }</h3>
 
             <div className="dream-details-description">
-              {dream[0].description}
+              { description }
             </div>
 
             <div className="dream-details-type">
               <p>Type of dream: </p>
               { 
-                dreamTypes(dream[0].type)
+                dreamTypes(type)
               }
             </div>
 
@@ -124,17 +133,17 @@ const DreamDetails = ({ dreams }: any) => {
           <div className='all-dreams dream-form'>
             <div className="form-items">
               <label htmlFor="title">Title:</label>
-              <input type='text' placeholder={dream[0].title} onChange={(e) => setTitle(e.target.value)} />
+              <input type='text' placeholder={ title } onChange={(e) => setTitle(e.target.value)} />
             </div>
 
             <div className="form-items">
               <label htmlFor="date">Date:</label>
-              <input type="date" placeholder={dream[0].date} onChange={(e) => {setDate(e.target.value)}} />
+              <input type="date" placeholder={ date } onChange={(e) => {setDate(e.target.value)}} />
             </div>
 
             <div className="form-items">
               <label htmlFor='description'>Description</label>
-              <input type="text" placeholder={dream[0].description} onChange={(e) => setDescription(e.target.value)} />
+              <input type="text" placeholder={ description } onChange={(e) => setDescription(e.target.value)} />
             </div>
 
             <div className="form-items">
@@ -154,7 +163,7 @@ const DreamDetails = ({ dreams }: any) => {
           </div> )
       }
       <div className='message'>
-        { message }
+        {/* { message } */}
       </div>
       <div className="main-home-picture details-picture">
         <img src={adream} /> 
