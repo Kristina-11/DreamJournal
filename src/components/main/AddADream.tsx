@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { API } from '../..';
 import add_dream from '../../img/adddreams.png';
 import { DispatchDreamType } from '../../react-app-env';
-import { dreamsRequest, postRequestSuccess, requestFailed } from '../../redux/dreams/dreamActionCreator';
+import { anyDreamRequest, anyDreamRequestResult } from '../../redux/dreams/dreamActionCreator';
 
 const AddADream = () => {
   const [ title, setTitle ] = useState('');
@@ -17,7 +17,7 @@ const AddADream = () => {
 
   const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(dreamsRequest())
+    dispatch(anyDreamRequest())
 
     let dream: object = {
       title,
@@ -29,7 +29,7 @@ const AddADream = () => {
     axios.post(API, dream)
     .then((res) => {
       setMessage(res.data)
-      dispatch(postRequestSuccess(res.data))
+      dispatch(anyDreamRequestResult(res.data.message))
 
       setTitle('')
       setDescription('')
@@ -38,7 +38,7 @@ const AddADream = () => {
     })
     .catch((err) => {
       setMessage('Request to the server failed :(')
-      dispatch(requestFailed(err))
+      dispatch(anyDreamRequestResult(err))
     })
   }
 

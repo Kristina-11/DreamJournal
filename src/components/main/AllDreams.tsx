@@ -3,7 +3,7 @@ import ADream from "./ADream";
 import { connect, useDispatch } from 'react-redux';
 import { DreamState, IDream } from "../../react-app-env";
 import { useEffect, useState } from 'react';
-import { getDreams, requestFailed } from '../../redux/dreams/dreamActionCreator';
+import { anyDreamRequest, anyDreamRequestResult, getDreams } from '../../redux/dreams/dreamActionCreator';
 import axios from 'axios';
 import { API } from '../..';
 
@@ -17,13 +17,15 @@ const AllDreams = ({ dreams, loading} : any) => {
   }, [])
 
   const handleDelete = () => {
+    dispatch(anyDreamRequest())
+
     axios.delete(API)
       .then((res) => {
-        //console.log(res.data)
+        dispatch(anyDreamRequestResult(res.data.message))
         dispatch(getDreams())
       })
       .catch((err) => {
-        dispatch(requestFailed(err))
+        dispatch(anyDreamRequestResult(err))
       })
   }
   

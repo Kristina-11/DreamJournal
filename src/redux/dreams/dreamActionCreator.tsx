@@ -6,41 +6,33 @@ import { API } from '../..';
 
 export const dreamsRequest = ():DreamAction => {
   return {
-    type: dreamActionTypes.DREAMS_REQUEST
+    type: dreamActionTypes.GET_ALL_DREAMS_REQUEST
   }
 }
 
 export const requestSuccess = (data:any):DreamAction => {
   return {
-    type: dreamActionTypes.REQUEST_SUCCESS,
+    type: dreamActionTypes.GET_ALL_DREAMS_SUCCESS,
     payload: data
   }
 }
 
 export const requestFailed = (error:object | string):DreamAction => {
   return {
-    type: dreamActionTypes.REQUEST_FAILURE,
+    type: dreamActionTypes.GET_ALL_DREAMS_FAILURE,
     payload: error
   }
 }
 
-// TODO: Rename this
-export const postRequestSuccess = (data:string):DreamAction => {
+export const anyDreamRequest = ():DreamAction => {
   return {
-    type: dreamActionTypes.POST_REQUEST_SUCCESS,
-    payload: data
+    type: dreamActionTypes.ANY_DREAM_REQUEST
   }
 }
 
-export const deleteADreamRequest = ():DreamAction => {
+export const anyDreamRequestResult = (data: any):DreamAction => {
   return {
-    type: dreamActionTypes.DELETE_A_DREAM_REQUEST
-  }
-}
-
-export const deleteADreamSuccess = (data: string):DreamAction => {
-  return {
-    type: dreamActionTypes.DELETE_A_DREAM_REQUEST_SUCCESS,
+    type: dreamActionTypes.ANY_DREAM_REQUEST_RESULT,
     payload: data
   }
 }

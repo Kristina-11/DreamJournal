@@ -10,40 +10,33 @@ const initialState: DreamState = {
 const dreamReducer = 
 (state = initialState, action: DreamAction): DreamState => {
   switch(action.type) {
-    case dreamActionTypes.DREAMS_REQUEST:
+    case dreamActionTypes.GET_ALL_DREAMS_REQUEST:
       return {
         ...state,
         loading: true
       }
 
-    case dreamActionTypes.REQUEST_SUCCESS:
+    case dreamActionTypes.GET_ALL_DREAMS_SUCCESS:
       return {
         ...state,
         loading: false,
         data: action.payload,
       }
 
-    case dreamActionTypes.REQUEST_FAILURE:
+    case dreamActionTypes.GET_ALL_DREAMS_FAILURE:
       return {
         ...state,
         loading: false,
         message: action.payload
       }
 
-    case dreamActionTypes.POST_REQUEST_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        message: action.payload
-      }
-
-    case dreamActionTypes.DELETE_A_DREAM_REQUEST:
+    case dreamActionTypes.ANY_DREAM_REQUEST:
       return {
         ...state,
         loading: true
       }
 
-    case dreamActionTypes.DELETE_A_DREAM_REQUEST_SUCCESS:
+    case dreamActionTypes.ANY_DREAM_REQUEST_RESULT:
       return {
         ...state,
         loading: false,

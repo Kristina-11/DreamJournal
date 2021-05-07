@@ -2,7 +2,7 @@ import { connect, useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router";
 import { IDream } from "../../react-app-env";
 import adream from '../../img/adreama.png';
-import { deleteADreamRequest, deleteADreamSuccess, getDreams, postRequestSuccess, requestFailed } from '../../redux/dreams/dreamActionCreator';
+import { anyDreamRequest, anyDreamRequestResult, getDreams } from '../../redux/dreams/dreamActionCreator';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API } from "../..";
@@ -23,6 +23,9 @@ const DreamDetails = ({ dreams }: any) => {
   const [ date, setDate ] = useState('');
   const [ type, setType ] = useState<any>();
 
+  let dispatch = useDispatch();
+  let history = useHistory();
+
   // Getting one dream
   useEffect(() => {
     axios.get(API + `/${id}`)
@@ -31,15 +34,11 @@ const DreamDetails = ({ dreams }: any) => {
       setDescription(res.data.description)
       setDate(res.data.date)
       setType(res.data.type)
-      console.log(res)
     })
     .catch((err) => {
-      console.log(err)
+      dispatch(anyDreamRequestResult(err))
     })
   }, [])
-
-  let dispatch = useDispatch();
-  let history = useHistory();
 
   useEffect(() => {
     dispatch(getDreams())
@@ -65,15 +64,15 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const handleDelete = (id: string) => {
-    dispatch(deleteADreamRequest())
+    dispatch(anyDreamRequest())
     axios.delete(API + `/${id}`)
     .then((res) => {
-      dispatch(deleteADreamSuccess(res.data))
+      dispatch(anyDreamRequestResult(res.data.message))
       history.push('/dreams')
     })
     .catch((err) => {
       console.log(err)
-      dispatch(requestFailed(err))
+      dispatch(anyDreamRequestResult(err))
     })
   }
 
@@ -83,7 +82,6 @@ const DreamDetails = ({ dreams }: any) => {
 
   const updateFields = (id:string) => {
     let typeNum:number = parseInt(type)
-    console.log(typeNum)
 
     let dream:object = {
       title,
@@ -91,16 +89,16 @@ const DreamDetails = ({ dreams }: any) => {
       description,
       type: typeNum
     }
-    console.log(dream)
 
+    dispatch(anyDreamRequest())
     axios.patch(API + `/${id}`, dream)
       .then((res) => {
-        dispatch(postRequestSuccess(res.data.message))
+        dispatch(anyDreamRequestResult(res.data.message))
         setUpdate(false)
         history.push('/dreams')
       })
       .catch((err) => {
-        dispatch(requestFailed(err))
+        dispatch(anyDreamRequestResult(err))
       })
   }
 
