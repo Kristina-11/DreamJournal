@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { API } from '../..';
 import add_dream from '../../img/adddreams.png';
@@ -12,6 +12,34 @@ const AddADream = () => {
   const [ date, setDate ] = useState('');
   const [ type, setType ] = useState('');
   const [ message, setMessage ] = useState('');
+  const [ maxDate, setMaxDate ] = useState('2021-05-10')
+
+  // NOTE: Limiting date picker to today
+  useEffect(() => {
+    let today = new Date();
+    let day:number = today.getDate()
+    let month:number = today.getMonth() + 1
+    let year:number = today.getFullYear()
+
+    let dayFormat:string = '';
+    let monthFormat:string = '';
+
+    if (day < 10) {
+      dayFormat = `0${day.toString()}`
+    } else {
+      dayFormat = day.toString()
+    }
+
+    if (month < 10) {
+      monthFormat = `0${month.toString()}` 
+    } else {
+      monthFormat = month.toString()
+    }
+
+    let formatedDate = `${year}-${monthFormat}-${dayFormat}`
+
+    setMaxDate(formatedDate)
+  }, [])
 
   let dispatch: DispatchDreamType = useDispatch();
 
@@ -63,7 +91,7 @@ const AddADream = () => {
 
           <div className='form-items'>
             <label htmlFor='date'>Date</label>
-            <input type='date' name="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} required/>
+            <input type='date' name="date" max={maxDate} id="date" value={date} onChange={(e) => setDate(e.target.value)} required/>
           </div>
 
           <div className='form-items'>
