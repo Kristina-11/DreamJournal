@@ -41,3 +41,49 @@
     text-align: center;
   }
 }
+
+@include media-xl {
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  .main-home {
+    display: grid !important;
+    grid-template-columns: auto auto auto;
+
+    h1 {
+      text-align: center;
+      grid-column: 2;
+    }
+
+    .main-home-picture {
+      grid-column: 3;
+
+      img {
+        position: static;
+        width: 80%;
+      }
+    }
+
+    .main-home-text {
+      grid-column: 2;
+      width: 70%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .dream-form form{
+      margin: 0 auto;
+    }
+
+    .dream-details {
+      width: 100%;
+    }
+  }
+
+  footer {
+    width: 98%;
+    text-align: center;
+  }
+}
