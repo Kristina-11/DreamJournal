@@ -6,6 +6,7 @@ Technology used in the project: <br/>
 ![](https://img.shields.io/badge/React-Redux-brightgreen)
 ![](https://img.shields.io/badge/TypeScript-blue)
 ![](https://img.shields.io/badge/CSS-SCSS-ff69b4)
+![](https://img.shields.io/badge/-RestAPI-blueviolet)
 <br/><br/>
 
 ### Site published at: https://kristina-11.github.io/DreamJournal
