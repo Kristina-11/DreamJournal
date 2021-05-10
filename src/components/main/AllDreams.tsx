@@ -10,7 +10,7 @@ import Search from './Search';
 
 const AllDreams = ({ dreams, filteredData, loading} : any) => { 
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(getDreams())
   }, [])
@@ -42,7 +42,19 @@ const AllDreams = ({ dreams, filteredData, loading} : any) => {
         loading ? 
           <div className='loading'>Loading...</div> :
           dreams.length != 0 && filteredData.length === 0 ? 
-            dreams.map((obj: IDream) => {
+            dreams
+            .sort((first:any, second:any) => {
+              // Converting string to date
+              let a = new Date(first.date)
+              let b = new Date(second.date)
+
+              let one = a.getDate()
+              let two = b.getDate()
+
+              // Sorting by date dreamt
+              return two - one
+            })
+            .map((obj: IDream) => {
               return <ADream key={obj._id} {...obj} />
             }) : 
           filteredData !== [] ? 

@@ -19,6 +19,10 @@ const AddADream = () => {
     e.preventDefault();
     dispatch(anyDreamRequest())
 
+    if (type === '') {
+      return setMessage('You have to choose type of dream!')
+    }
+
     let dream: object = {
       title,
       description,
@@ -65,6 +69,7 @@ const AddADream = () => {
           <div className='form-items'>
             <label htmlFor='type'>Type of dream</label>
             <select name="type" id="type" onChange={(e) => setType(e.target.value)} required>
+              <option value=''>Choose...</option>
               <option value='happy'>Happy</option>
               <option value='sad'>Sad</option>
               <option value='exciting'>Exciting</option>

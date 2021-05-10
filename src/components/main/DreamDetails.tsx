@@ -15,13 +15,14 @@ type dreamParam = {
 const DreamDetails = ({ dreams }: any) => {
   const { id } = useParams<dreamParam>();
   const loading = dreams.loading;
-  //const message = dreams.message;
   
   const [ update, setUpdate ] = useState(false);
   const [ title, setTitle ] = useState('');
   const [ description, setDescription ] = useState('');
   const [ date, setDate ] = useState('');
   const [ type, setType ] = useState<any>();
+  const [ lastUpdated, setLastUpdated ] = useState('');
+  const [ message, setMessage ] = useState('');
 
   let dispatch = useDispatch();
   let history = useHistory();
@@ -30,10 +31,14 @@ const DreamDetails = ({ dreams }: any) => {
   useEffect(() => {
     axios.get(API + `/${id}`)
     .then((res) => {
+      console.log(res.data)
       setTitle(res.data.title)
       setDescription(res.data.description)
       setDate(res.data.date)
       setType(res.data.type)
+
+      let formatedDate = new Date(res.data.updatedAt)
+      setLastUpdated(formatedDate.toUTCString())
     })
     .catch((err) => {
       dispatch(anyDreamRequestResult(err))
@@ -71,7 +76,6 @@ const DreamDetails = ({ dreams }: any) => {
       history.push('/dreams')
     })
     .catch((err) => {
-      console.log(err)
       dispatch(anyDreamRequestResult(err))
     })
   }
@@ -95,7 +99,7 @@ const DreamDetails = ({ dreams }: any) => {
       .then((res) => {
         dispatch(anyDreamRequestResult(res.data.message))
         setUpdate(false)
-        history.push('/dreams')
+        setMessage(res.data.message)
       })
       .catch((err) => {
         dispatch(anyDreamRequestResult(err))
@@ -121,6 +125,10 @@ const DreamDetails = ({ dreams }: any) => {
               { 
                 dreamTypes(type)
               }
+            </div>
+
+            <div className="last-updated">
+              Last updated: { lastUpdated }
             </div>
 
             <div className="dream-details-buttons additional">
@@ -161,7 +169,7 @@ const DreamDetails = ({ dreams }: any) => {
           </div> )
       }
       <div className='message'>
-        {/* { message } */}
+        { message }
       </div>
       <div className="main-home-picture details-picture">
         <img src={adream} /> 

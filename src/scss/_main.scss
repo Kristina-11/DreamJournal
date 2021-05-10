@@ -3,6 +3,10 @@ main {
   height: 100%;
   padding: 1rem;
 
+  .message {
+    color: darken($secondery-light-theme, 40%);
+  }
+
   h1 {
     text-align: left;
     @include headings-style;
@@ -41,6 +45,12 @@ main {
     margin-top: 1rem;
     color: $header-color;
     font-size: 1.2rem;
+
+    select {
+      color: darken($primary-light-theme, 10%);
+      border: none;
+      font-size: 1.2rem;
+    }
   }
 
   // List of Dreams
@@ -60,6 +70,10 @@ main {
       padding: 0.8rem;
       margin: 0.5rem;
       border-left: 3px solid $header-color;
+    }
+
+    .search-dreams {
+      color: $primary-light-theme;
     }
   }
 
@@ -81,6 +95,10 @@ main {
       color: $primary-light-theme;
     }
 
+    .last-updated {
+      color: $primary-light-theme !important;
+    }
+    
     &-buttons {
       padding: .6rem;
       text-align: left;
@@ -107,4 +125,5 @@ main {
       bottom: 1rem;
     }
   }
+
 }
