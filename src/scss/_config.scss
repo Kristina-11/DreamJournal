@@ -26,7 +26,7 @@ $header-color: rgb(74, 35, 90);
 }
 
 @mixin media-lg {
-  @media screen and (min-width: 769px) {
+  @media screen and (max-width: 1024px) {
     @content;
   }
 }

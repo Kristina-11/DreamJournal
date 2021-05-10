@@ -76,39 +76,3 @@
     }
   }
 }
-
-@include media-xl {
-  .main-home {
-    display: grid !important;
-    grid-template-columns: auto auto auto;
-
-    h1 {
-      text-align: center;
-      grid-column: 2;
-    }
-
-    .main-home-picture {
-
-      img {
-        position: static;
-        width: 70%;
-      }
-    }
-
-    .main-home-text {
-      grid-column: 2;
-      width: 70%;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .dream-form form{
-      margin: 0 auto;
-    }
-
-    .dream-details {
-      width: 100%;
-    }
-  }
-
-}
