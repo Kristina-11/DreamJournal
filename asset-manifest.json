@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/DreamJournal/static/css/main.61c1cea7.chunk.css",
+    "main.css": "/DreamJournal/static/css/main.2529c1fc.chunk.css",
     "main.js": "/DreamJournal/static/js/main.498935d1.chunk.js",
     "main.js.map": "/DreamJournal/static/js/main.498935d1.chunk.js.map",
     "runtime-main.js": "/DreamJournal/static/js/runtime-main.e1caa334.js",
@@ -8,7 +8,7 @@
     "static/js/2.07ed80a2.chunk.js": "/DreamJournal/static/js/2.07ed80a2.chunk.js",
     "static/js/2.07ed80a2.chunk.js.map": "/DreamJournal/static/js/2.07ed80a2.chunk.js.map",
     "index.html": "/DreamJournal/index.html",
-    "static/css/main.61c1cea7.chunk.css.map": "/DreamJournal/static/css/main.61c1cea7.chunk.css.map",
+    "static/css/main.2529c1fc.chunk.css.map": "/DreamJournal/static/css/main.2529c1fc.chunk.css.map",
     "static/js/2.07ed80a2.chunk.js.LICENSE.txt": "/DreamJournal/static/js/2.07ed80a2.chunk.js.LICENSE.txt",
     "static/media/adddream.5915c82a.png": "/DreamJournal/static/media/adddream.5915c82a.png",
     "static/media/adddreams.403ccaea.png": "/DreamJournal/static/media/adddreams.403ccaea.png",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.e1caa334.js",
     "static/js/2.07ed80a2.chunk.js",
-    "static/css/main.61c1cea7.chunk.css",
+    "static/css/main.2529c1fc.chunk.css",
     "static/js/main.498935d1.chunk.js"
   ]
 }
