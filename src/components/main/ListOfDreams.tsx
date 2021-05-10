@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom"
 import { IDream } from "../../react-app-env"
 
-// Short data to show on screen
-const ADream = (obj: IDream) => {
+const ListOfDreams = (obj: IDream) => {
   return (
     <div className='dream'>
       <Link to={`/dreams/${obj._id}`}>
@@ -15,4 +14,4 @@ const ADream = (obj: IDream) => {
   )
 }
 
-export default ADream
+export default ListOfDreams

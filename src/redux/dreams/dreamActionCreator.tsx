@@ -37,6 +37,13 @@ export const anyDreamRequestResult = (data: any):DreamAction => {
   }
 }
 
+export const searchType = (data: any):DreamAction => {
+  return {
+    type: dreamActionTypes.GET_STATE,
+    payload: data
+  }
+}
+
 // NOTE: Async action creators
 export const getDreams = () => {
   return (dispatch: DispatchDreamType) => {

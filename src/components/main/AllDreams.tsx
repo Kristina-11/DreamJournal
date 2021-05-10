@@ -1,5 +1,5 @@
 import all_dreams from '../../img/alldreams.png';
-import ADream from "./ADream";
+import ADream from "./ListOfDreams";
 import { connect, useDispatch } from 'react-redux';
 import { DreamState, IDream } from "../../react-app-env";
 import { useEffect, useState } from 'react';
@@ -8,9 +8,9 @@ import axios from 'axios';
 import { API } from '../..';
 import Search from './Search';
 
-const AllDreams = ({ dreams, loading} : any) => { 
+const AllDreams = ({ dreams, filteredData, loading} : any) => { 
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     dispatch(getDreams())
   }, [])
@@ -41,10 +41,14 @@ const AllDreams = ({ dreams, loading} : any) => {
         {
         loading ? 
           <div className='loading'>Loading...</div> :
-          dreams.length != 0 ? 
+          dreams.length != 0 && filteredData.length === 0 ? 
             dreams.map((obj: IDream) => {
               return <ADream key={obj._id} {...obj} />
-            }) :
+            }) : 
+          filteredData !== [] ? 
+          filteredData.map((obj: IDream) => {
+            return <ADream key={obj._id} {...obj} />
+          }) :
           <div className='error'>
             Dream log empty
           </div> 
@@ -60,6 +64,7 @@ const AllDreams = ({ dreams, loading} : any) => {
 const mapStateToProps = (state:DreamState) => {
   return {
     dreams: state.data,
+    filteredData: state.filteredData,
     loading: state.loading
   }
 }

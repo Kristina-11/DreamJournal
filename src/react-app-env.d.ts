@@ -14,7 +14,8 @@ interface IDream {
 type DreamState = {
   loading: boolean,
   data: any,
-  message?: object | string
+  message?: object | string,
+  filteredData?: any
 }
 
 // Schema how actions should look

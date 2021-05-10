@@ -4,12 +4,18 @@ import * as dreamActionTypes from './dreamActionTypes'
 const initialState: DreamState = {
   loading: true,
   data: [],
-  message: ''
+  message: '', 
+  filteredData: []
 } 
 
 const dreamReducer = 
 (state = initialState, action: DreamAction): DreamState => {
   switch(action.type) {
+    case dreamActionTypes.GET_STATE:
+      return {
+        ...state,
+        filteredData: action.payload
+      }
     case dreamActionTypes.GET_ALL_DREAMS_REQUEST:
       return {
         ...state,
