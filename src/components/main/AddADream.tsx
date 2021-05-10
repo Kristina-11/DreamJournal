@@ -88,7 +88,7 @@ const AddADream = () => {
       </div>
 
       <div className="main-home-picture">
-        <img src={add_dream} /> 
+        <img src={add_dream} alt='Dreamy picture' /> 
       </div>
     </div>
   )

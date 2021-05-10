@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { API } from "../..";
 
-// TODO: Move this to react-app-env.d.ts
 type dreamParam = {
   id: string
 }
@@ -172,7 +171,7 @@ const DreamDetails = ({ dreams }: any) => {
         { message }
       </div>
       <div className="main-home-picture details-picture">
-        <img src={adream} /> 
+        <img src={adream} alt='' /> 
       </div>
     </div>
   )

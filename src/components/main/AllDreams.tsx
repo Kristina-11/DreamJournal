@@ -2,7 +2,7 @@ import all_dreams from '../../img/alldreams.png';
 import ADream from "./ListOfDreams";
 import { connect, useDispatch } from 'react-redux';
 import { DreamState, IDream } from "../../react-app-env";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { anyDreamRequest, anyDreamRequestResult, getDreams } from '../../redux/dreams/dreamActionCreator';
 import axios from 'axios';
 import { API } from '../..';
@@ -67,7 +67,7 @@ const AllDreams = ({ dreams, filteredData, loading} : any) => {
         }
       </div>
       <div className="main-home-picture">
-        <img src={all_dreams} /> 
+        <img src={all_dreams} alt='' /> 
       </div>
     </div>
   )
