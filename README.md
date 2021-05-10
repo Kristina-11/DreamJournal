@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Dream Journal - In progress
+## Dream Journal
 
 Technology used in the project: <br/>
 ![](https://img.shields.io/badge/React-Redux-brightgreen)
@@ -8,7 +8,7 @@ Technology used in the project: <br/>
 ![](https://img.shields.io/badge/CSS-SCSS-ff69b4)
 <br/><br/>
 
-### Site published at: https://kristina-11.github.io/DreamJournal/#/
+### Site published at: https://kristina-11.github.io/DreamJournal
 <br/>
 
 <ul>
@@ -17,6 +17,26 @@ Technology used in the project: <br/>
   <li>Add A Dream - component for uplouding new dreams</li>
 </ul>
 
-## Preview of a first page
+## Home 
+It has dream information taken from <a href='https://en.wikipedia.org/wiki/Dream'>Wikipedia</a>
 
-![home](https://user-images.githubusercontent.com/61420128/116111762-3e564800-a6b7-11eb-9873-1f0d42bc4be5.PNG) 
+## All Dreams 
+<ul>
+  <li>Consumes RestAPI</li>
+  <li>Showing dreams from API</li>
+  <li>Delete All button - as it says, deletes everything from list and from API</li>
+  <li>Search by type - search form that loops through types of dreams</li>
+  <li>Every dream is a link that goes to a page that shows more details about that dream, see Dream Details section</li>
+</ul>
+
+## Dream Details
+<ul>
+  <li>Showing more details about specific dream</li>
+  <li>It has two buttons for Editing or Deleting</li>
+  <li>Edit - allows us to edit parts of a dream and updates API</li>
+  <li>Delete - allows us to delete specific dream</li>
+</ul>
+
+## Add A Dream
+It shows form for entering new data to API and shows message when request is done.
+
