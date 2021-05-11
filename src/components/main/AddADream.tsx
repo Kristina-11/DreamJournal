@@ -14,7 +14,7 @@ const AddADream = () => {
   const [ message, setMessage ] = useState('');
   const [ maxDate, setMaxDate ] = useState('2021-05-10')
 
-  // NOTE: Limiting date picker to today
+  // NOTE: Restricting dates from today in date picker
   useEffect(() => {
     let today = new Date();
     let day:number = today.getDate()

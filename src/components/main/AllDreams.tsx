@@ -41,23 +41,20 @@ const AllDreams = ({ dreams, filteredData, loading} : any) => {
         {
         loading ? 
           <div className='loading'>Loading...</div> :
-          dreams.length != 0 && filteredData.length === 0 ? 
+          dreams.length != 0 &&  filteredData.length === 0 ? 
             dreams
             .sort((first:any, second:any) => {
               // Converting string to date
               let a = new Date(first.date)
               let b = new Date(second.date)
-
-              let one = a.getDate()
-              let two = b.getDate()
-
+              
               // Sorting by date dreamt
-              return two - one
+              return b.getDate() - a.getDate()
             })
             .map((obj: IDream) => {
               return <ADream key={obj._id} {...obj} />
             }) : 
-          filteredData !== [] ? 
+          filteredData.length !== 0 ? 
           filteredData.map((obj: IDream) => {
             return <ADream key={obj._id} {...obj} />
           }) :

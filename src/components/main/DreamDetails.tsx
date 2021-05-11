@@ -15,11 +15,11 @@ const DreamDetails = ({ dreams }: any) => {
   const { id } = useParams<dreamParam>();
   const loading = dreams.loading;
   
-  const [ update, setUpdate ] = useState(false);
   const [ title, setTitle ] = useState('');
   const [ description, setDescription ] = useState('');
   const [ date, setDate ] = useState('');
   const [ type, setType ] = useState<any>();
+  const [ update, setUpdate ] = useState(false);
   const [ lastUpdated, setLastUpdated ] = useState('');
   const [ message, setMessage ] = useState('');
 
@@ -30,7 +30,6 @@ const DreamDetails = ({ dreams }: any) => {
   useEffect(() => {
     axios.get(API + `/${id}`)
     .then((res) => {
-      console.log(res.data)
       setTitle(res.data.title)
       setDescription(res.data.description)
       setDate(res.data.date)
@@ -42,17 +41,20 @@ const DreamDetails = ({ dreams }: any) => {
     .catch((err) => {
       dispatch(anyDreamRequestResult(err))
     })
-  }, [])
+  }, [update])
 
   useEffect(() => {
     dispatch(getDreams())
   }, [])
 
-  const dreamTypes = (number: number) => {
+  let dreamTypes = (number: number) => {
     switch(number) {
+      default:
+        return 'Error'
+
       case 0:
         return 'Happy'
-
+        
       case 1: 
         return 'Sad'
 
@@ -61,9 +63,6 @@ const DreamDetails = ({ dreams }: any) => {
 
       case 3: 
         return 'Scary'
-
-      default:
-        return 'Error'
     }
   }
 
