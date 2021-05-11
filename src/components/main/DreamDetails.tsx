@@ -19,8 +19,8 @@ const DreamDetails = ({ dreams }: any) => {
   const [ description, setDescription ] = useState('');
   const [ date, setDate ] = useState('');
   const [ type, setType ] = useState<any>();
-  const [ update, setUpdate ] = useState(false);
   const [ lastUpdated, setLastUpdated ] = useState('');
+  const [ update, setUpdate ] = useState(false);
   const [ message, setMessage ] = useState('');
 
   let dispatch = useDispatch();
@@ -67,7 +67,9 @@ const DreamDetails = ({ dreams }: any) => {
   }
 
   const handleDelete = (id: string) => {
-    dispatch(anyDreamRequest())
+    let warningBeforeDelete = window.confirm('Are you sure you want to delete a dream?')
+
+    warningBeforeDelete &&
     axios.delete(API + `/${id}`)
     .then((res) => {
       dispatch(anyDreamRequestResult(res.data.message))
@@ -75,7 +77,7 @@ const DreamDetails = ({ dreams }: any) => {
     })
     .catch((err) => {
       dispatch(anyDreamRequestResult(err))
-    })
+    }) 
   }
 
   const handleEdit = () => {

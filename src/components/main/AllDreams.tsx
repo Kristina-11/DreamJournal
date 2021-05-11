@@ -16,8 +16,9 @@ const AllDreams = ({ dreams, filteredData, loading} : any) => {
   }, [])
 
   const handleDelete = () => {
-    dispatch(anyDreamRequest())
+    let warningBeforeDelete = window.confirm('Are you sure you want to delete a dream?')
 
+    warningBeforeDelete &&
     axios.delete(API)
       .then((res) => {
         dispatch(anyDreamRequestResult(res.data.message))
